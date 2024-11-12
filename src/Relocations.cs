@@ -101,7 +101,7 @@ namespace RelocEditor
         /// <returns>True if edited with success, else false</returns>
         public bool EditRelocation(UInt64 address, UInt64 newAddress, PeHeader.BASE_RELOCATION_TYPE newType)
         {
-            UInt64 oldAddress = (address & 0xFFFFF000) - pehr.GetImageBase32Or64();
+            UInt64 oldAddress = (address & 0xFFFFFFFFF000) - pehr.GetImageBase32Or64();
             ushort oldOffset = (ushort)(address & 0x00000FFF);
 
             PeHeader.BASE_RELOCATION_TYPE oldType = PeHeader.BASE_RELOCATION_TYPE.IMAGE_REL_BASED_ABSOLUTE;
